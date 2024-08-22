@@ -1,12 +1,14 @@
 import React from 'react';
-import styles from './Navbar.module.css';
-export default function Navbar() {
+import styles from './Header.module.css';
+
+
+export default function Header() {
     return (
-        <nav className={styles.container}>
+        <header className={styles.container}>
             <img className={styles.meme}src='../images/Troll-Face.png'/>
             <p className={styles.title}>Meme Generator <span></span></p>
             <p className={styles.subTitle}>React Course - Project 3</p>
-        </nav>
+        </header>
     )
 
 };

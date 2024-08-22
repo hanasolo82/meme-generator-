@@ -1,0 +1,50 @@
+*{
+    font-family: "Karla", sans-serif;
+    font-size: 1.4rem;
+}
+
+.mainContainer {
+ 
+}
+.formContainer {
+ display: grid;
+ grid-template:
+ 'labelLeft inputRight' 0.01rem
+ 'inputLeft labelRight' 3.4rem
+ 'button button' 3.6rem
+ /1fr 1fr ;/*ancho y numero de colum*/
+ margin: 2.5rem;
+ gap: 2rem 3rem;
+ 
+ 
+ 
+}
+.labelLeft {
+ grid-area: labelLeft;
+}
+.inputLeft {
+ grid-area: inputLeft;
+ 
+
+}
+.labelRight {
+ grid-area: labelRight;
+}
+.inputRight {
+ grid-area: inputRight;
+    
+}
+.button {
+ grid-area: button;
+ border-style: none;
+ color: white;
+ border-radius: 0.5rem;
+ background: linear-gradient(to right, #672280, #A626D3);
+}
+
+.button {
+    cursor: pointer;
+}
+.button:hover {
+    background: linear-gradient(to right, #7e4093, #b164ce);
+}
