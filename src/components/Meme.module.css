@@ -4,7 +4,11 @@
 }
 
 .mainContainer {
- 
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin: 0;
+ padding:  0 3.6rem;
 }
 .formContainer {
  display: grid;
@@ -24,7 +28,6 @@
 }
 .inputLeft {
  grid-area: inputLeft;
- 
 
 }
 .labelRight {
@@ -47,4 +50,12 @@
 }
 .button:hover {
     background: linear-gradient(to right, #7e4093, #b164ce);
+}
+
+.imageMeme {
+    
+    
+    max-width: 100%;
+    border-radius: 0.3rem;
+    
 }
