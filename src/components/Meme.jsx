@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useId} from "react";
 import styles from './Meme.module.css';
 import memesData from '../../memeData';
 
@@ -15,6 +15,8 @@ export default function Meme() {
     });
     const [allMemes, setAllMemesData] = useState(memesData);
 
+    const id = useId;
+
     function getRandomMemes(event) {
        event.preventDefault()
        const memesList = allMemes.data.memes;
@@ -26,7 +28,13 @@ export default function Meme() {
         
        }));    
     }
-    
+    function handleChange(event) {
+        const {name, value} = event.target
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
     
 
     return (
@@ -36,28 +44,32 @@ export default function Meme() {
                 <input 
                     placeholder='left'
                     className={styles.inputLeft} 
-                    name="left" 
-                    id='left' 
+                    name="topText" 
+                    id={id + 'left'} 
                     type='text'
+                    value={meme.topText}
+                    onChange={handleChange}
                 />
                 <label htmlFor='right' className={styles.inputRight}>Bottom  Text</label>
                 <input 
                     placeholder='right'
                     className={styles.labelRight} 
-                    name='right' 
-                    id='right' 
+                    name='bottomText' 
+                    id={id + 'right'} 
                     type='text'
+                    value={meme.bottomText}
+                    onChange={handleChange}
+
                 />
                 <button onClick={getRandomMemes} className={styles.button}>
                          🚀 Get a new meme image 🖼️
                 </button>
             </form>
-            
-                <img 
-                    className={styles.imageMeme}
-                    src= {meme.randomImage} 
-                />
-                
+                <div className={styles.meme}>          
+                <img className={styles.imageMeme} src= {meme.randomImage} />
+                <h2 className={styles.imageTextTop}>{meme.topText}</h2>
+                <h2 className={styles.imageTextBottom}>{meme.bottomText}</h2>
+                </div>
         </main>
     )
 
